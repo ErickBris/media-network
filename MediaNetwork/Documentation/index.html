@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Media Network</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Media Network&rdquo; Documentation by &ldquo;Demyanchuk Dmitry&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Media Network&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 28/11/2016<br>
+					By: Demyanchuk Dmitry<br>
+					Email: <a href="mailto:qascript@mail.ru">qascript@mail.ru</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my Media Network If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://codecanyon.net/user/qascript/?ref=qascript">here</a> or <a href="http://vk.com/dmitry.demyanchuk" target="_blank">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol>
+			<li><a href="#overview">Overview</a></li>
+			<li><a href="#phpInstall">PHP Installation Process</a></li>
+			<li><a href="#androidInstall">Configure application for Android</a></li>
+			<li><a href="#emoji">How to add emoji support?</a></li>
+			<li><a href="#update">How to update?</a></li>
+			<li><a href="#firebase_get_server_key_and_sender_id">Firebase get Server Key and Sender Id?</a></li>
+		</ol>
+		<ol class="alpha">
+			<li><a href="#phpEngineStructure">PHP Engine structure</a></li>
+			<li><a href="#faq">FAQ</a></li>
+		</ol>
+		
+		<hr>
+
+		<h3 id="overview"><strong>1) Overview</strong> - <a href="#toc">top</a></h3>
+
+		<p>
+			<b>Advice:</b>
+			<ol>
+				<li>To upload files to the server, use specialized programs, such as: FileZilla</li>
+				<li>To edit a php file has special editors are, for example: Sublime Text, phpStorm, Notepad ++. Do not use the standard editor Windows: Notepad! Notepad can change the encoding of a php file and you'll get an error!</a></li>
+			</ol>
+		</p>
+		
+		<p>This is important, please read:</p>
+
+		<p>How to get facebook_app_id, banner_ad_unit_id and more information read here <a target="_blank" href="http://ifsoft.co.uk/help/">http://ifsoft.co.uk/help</a></p>
+
+		<p>error_reporting:
+			<br>
+			Default error_reporting set to E_ALL.
+			<br>
+			To set error_reporting to 0 - edit the file /core/init.inc.php
+		</p>
+
+		<p>All user data is cleaned with the following code (functions can be edited in the file: class/class.helper.inc.php):</p>
+		<pre>
+static function clearText($text) {
+
+	$text = trim($text);
+	$text = strip_tags($text);
+	$text = htmlspecialchars($text);
+
+	return $text;
+}
+
+static function clearInt($value) {
+
+	$value = intval($value);
+
+	return $value;
+}
+		</pre>
+		
+		<hr>
+
+		<h3 id="phpInstall"><strong>2) Php Installation Process</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Configure the server part with fast three easy steps!</p>
+		<p>How to upload script to the server, read here: <a href="http://ifsoft.co.uk/help/how_to_upload_script_on_the_server/" target="_blank">How to upload script to the server</a></p>
+
+		<ol>
+			<li>Open and edit config/db.inc.php (edit the data on the selected image)</li>
+			<li>How to get FIREBASE_SERVER_KEY and FIREBASE_SENDER_ID see <a href="#firebase_get_server_key_and_sender_id">here</a></li>
+<pre>
+	$B['CLIENT_ID'] = 1;
+	$B['APP_URL'] = "edit to your domain example: http://yourdomain.com";
+	$C['DB_HOST'] = "localhost or your db host";
+	$C['DB_USER'] = "your db user";
+	$C['DB_PASS'] = "your db password";
+	$C['DB_NAME'] = "your db name";
+</pre>
+			<img src="assets/images/php_install.png" alt="PHP Engine Structure" />
+			<li>Upload the script to the root server.</li>
+			<li>Open in browser: http://your_site.com/install.php - You create the first user (administrator account), which will be open full access to the admin panel.</li>
+			<li>Admin Panel Login Page: http://your_site.com/admin/login.php</li>
+		</ol>
+		
+		<p></p>
+		<p>If you correctly follow the three simple steps, then the browser will automatically redirect you to the admin panel!</p>
+		
+		<hr>
+
+		<h3 id="androidInstall"><strong>3) Configure application for Android</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Application for Android created with Android Studio.</p>
+		<p>Android application Structure - is a common project structure Android Studio. To get started with the application you need to edit a few constants:</p>
+
+		<ol>
+			<li>Open the project in the editor (preferably in Android Studio). You may need to adjust the Android SDK Location in the Project Structure (Ctrl + Alt + Shift + S).</li>
+			<li>Change API_DOMAIN on your domain (file Constants.java). Also, you can do this (For Push Notifications Support): <a href="http://ifsoft.co.uk/help/how_to_migrate_from_gcm_to_fcm/" target="_blank">http://ifsoft.co.uk/help/how_to_migrate_from_gcm_to_fcm/</a></li>
+			<img src="assets/images/android_install.png" alt="Android" />
+
+			<li>Change banner_ad_unit_id and app_email (optional)</li>
+			<img src="assets/images/android_install_2.png" alt="Android" />
+		</ol>
+
+		<p>As you can see here is very simple!</p>
+		
+		<hr>
+
+		<h3 id="emoji"><strong>4) How to add emoji support?</strong> - <a href="#toc">top</a></h3>
+		
+		<p><b>Caution! It is important!</b></p>
+		<p><b>For correct storage emoji characters in the database requires MySQL version not lower than 5.5.3! Before any action is required to create a backup of all databases, a comparison that will change!</b></p>
+
+		<ol>
+			<li>Find out which version of MySQL is running on your server. Character set utf8mb4 introduced in MySQL starting from version 5.5.3, on this, you'll need to update your version of MySQL server if it is lower than this, or ask it to do your system administrator.</li>
+			<li>Type in your browser: http://yousite.com/enable_emoji.php and press Enter (Database will be automatically corrected).</li>
+			<li>
+				<ol class="alpha">
+					<li>Open the file /core/init.inc.php.</li>
+					<li>Find the line (29): <b>$dbo = new PDO ($dsn, DB_USER, DB_PASS, array (PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));</b></li>
+					<li>Replace line to: <b>$dbo = new PDO ($dsn, DB_USER, DB_PASS, array (PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"));</b></li>
+					<li>Save the file.</li>
+				</ol>
+			</li>
+			<li>
+				<ol class="alpha">
+					<li>Open the file /class/class.db_connect.inc.php.</li>
+					<li>Find the line (31): <b>$this->db = new PDO($dsn, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));</b></li>
+					<li>Replace line to: <b>$this->db = new PDO($dsn, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"));</b></li>
+					<li>Save the file.</li>
+				</ol>
+			</li>
+			<li>If done correctly and MySQL version not lower than 5.5.3: Everything will work!</li>
+		</ol>
+
+		<p><b>I did not support the default character set utf8mb4, because some users are on their servers MySQL version lower than 5.5.3</b></p>
+		<p><b>Correction is subject only: messages, posts and comments tables! This means that will add support emoji only in personal messages, posts and comments!</b></p>
+		
+		<hr>
+
+		<h3 id="update"><strong>5) How to update?</strong> - <a href="#toc">top</a></h3>
+		
+		<p><b>Caution! It is important!</b></p>
+
+		<p><b>Folders "Android Project (client)" and "PHP Engine (server)" - Always include the newest, full source code!</b></p>
+
+		<p><b>It is first version :)</b></p>
+
+		<hr>
+
+		<h3 id="firebase_get_server_key_and_sender_id"><strong>6) Firebase get Server Key and Sender Id?</strong> - <a href="#toc">top</a></h3>
+
+		<ol>
+			<li>Go to your Firabase Console (<a target="_blank" href="https://console.firebase.google.com/">https://console.firebase.google.com/</a>)</li>
+			<li>Select your project, create a new (if not created) or import from google (<a target="_blank" href="http://ifsoft.co.uk/help/how_to_migrate_from_gcm_to_fcm/">http://ifsoft.co.uk/help/how_to_migrate_from_gcm_to_fcm/</a>)</li>
+			<li><img src="assets/images/firebase_server_key_and_sender_id.png" alt="Android" /></li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="phpEngineStructure"><strong>A) PHP Engine structure</strong> - <a href="#toc">top</a></h3>
+		<p>The structure of the project consists of four main directories:</p>
+		
+		<img src="assets/images/phpenginestructure.png" alt="PHP Engine Structure" />
+
+		<p>1. admin - directory contains admin panel html files.</p>
+		<p>2. api - directory contains methods that are called from the application.</p>
+		<p>3. class - directory includes php class files.</p>
+		<p>4. common - directory includes header, footer, topbar files for admin panel.</p>
+		<p>5. config - directory contains the files needed for work and application settings: configuration files.</p>
+		<p>6. core - directory contains the files needed for work and application settings: configuration files.</p>
+		<p>7. css - directory include these files: css.</p>
+		<p>8. img - directory include these files: image files.</p>
+		<p>9. js - directory include these files: js.</p>
+
+		<hr>
+		
+		<h3 id="faq"><strong>B) FAQ</strong> - <a href="#toc">top</a></h3>
+
+		<p>
+			<b>1. Where to change the time string (1m ago, 10h ago)?</b>
+			<br>
+			<div>Watch and edit the file class/class.language.inc.php on the server side.</div>
+		</p>
+
+		<p>
+			<b>2. Why can not I send messages gcm?</b>
+			<br>
+			<div>First, check whether you have enabled on the server module curl (the most common problem). Check the settings on your application to Firabase Console</div>
+		</p>
+
+		<p>
+			<b>3. Why can not I upload a picture?</b>
+			<br>
+			<div>Set the directory (server side) cover, images, gallery, photo, chat_images permissions: 755</div>
+		</p>
+
+		<p>
+			<b>4. How to change the package name?</b>
+			<br>
+			<div>There are many ways to do this (use Google). Personally, I prefer to do so: <a target="_blank" href="http://stackoverflow.com/questions/16804093/android-studio-rename-package">http://stackoverflow.com/questions/16804093/android-studio-rename-package</a></div>
+		</p>
+
+		<p>
+			<b>5. How to generate the hash keys for Facebook app?</b>
+			<div>As I personally generates keys - I wrote here: <a target="_blank" href="http://ifsoft.co.uk/help/how_to_create_android_facebook_key_hash/">http://ifsoft.co.uk/help/how_to_create_android_facebook_key_hash/</a>
+			<br>
+			Also, this information is detailed in the official documentation Facebook</div>
+		</p>
+
+		<p>
+			<b>6. Where to change the text for the sections Acknowledgements and Terms of Use?</b>
+			<div>
+				The server side, files:
+				<br>
+				api\v1\method\app.thanks.inc.php 
+				<br>
+				api\v1\method\app.terms.inc.php
+			</div>
+		</p>
+
+		<p>
+			<b>7. How to translate the application into another language?</b>
+			<div>
+				All string constants in the file strings.xml (Android project). Time constants in the file /class/class.language.inc.php (server part)
+			</div>
+		</p>
+
+		<p>
+			<b>8. What is CLIENT_ID?</b>
+			<div>
+				CLIENT_ID - integer by which server (script) identifies your Android app. CLIENT_ID - you need to create (generate) yourself! For example: 1754
+			</div>
+		</p>
+
+		<p>
+			<b>9. How to change the application icon and logo?</b>
+			<div>
+				See screenshots:
+				<br>
+				<img src="assets/images/app_icon.png">
+				<img src="assets/images/app_logo.png">
+			</div>
+		</p>
+
+		<p>
+			<b>10. How do I change the order of items on the left sidebar?</b>
+			<div>
+				Please see and edit res/menu/menu_nav_drawer.xml
+			</div>
+		</p>
+
+		<p>
+			<b>11. How change notifications alert icon in application?</b>
+			<div>
+				File "res/drawable/ic_action_push_notification.png"
+			</div>
+		</p>
+
+		<p>
+			<b>12. How to change application color scheme?</b>
+			<div>
+				All color constants in the "res/values/colors.xml" file
+			</div>
+		</p>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this application. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the application on CodeCanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>Demyanchuk Dmitry</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

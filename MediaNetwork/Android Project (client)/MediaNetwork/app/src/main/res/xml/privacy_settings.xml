@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:key="allowMessagesFromAnyone"
+        android:title="@string/settings_allow_messages"
+        android:summary="@string/settings_allow_messages_summary">
+    </CheckBoxPreference>
+
+    <CheckBoxPreference
+        android:key="allowGalleryComments"
+        android:title="@string/settings_allow_comments"
+        android:summary="@string/settings_allow_comments_summary">
+    </CheckBoxPreference>
+
+    <CheckBoxPreference
+        android:key="allowShowProfileOnlyToFriends"
+        android:title="@string/settings_allow_profile_info_only_for_friends"
+        android:summary="@string/settings_allow_profile_info_only_for_friends_summary">
+    </CheckBoxPreference>
+
+    <CheckBoxPreference
+        android:key="allowShowOnline"
+        android:title="@string/settings_allow_show_online"
+        android:summary="@string/settings_allow_show_online_summary">
+    </CheckBoxPreference>
+
+    <CheckBoxPreference
+        android:key="allowShowPhoneNumber"
+        android:title="@string/settings_allow_show_phone"
+        android:summary="@string/settings_allow_show_phone_summary">
+    </CheckBoxPreference>
+
+</PreferenceScreen>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:emojicon="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/blogs_list_row_selector">
+
+    <!-- Thumbnail Image -->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/itemHeader"
+        android:layout_marginBottom="10dp">
+
+        <com.pkmmte.view.CircularImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:id="@+id/itemAuthorPhoto"
+            android:src="@drawable/profile_default_photo"
+            app:border="true"
+            app:border_color="@color/content_page"
+            app:border_width="1dp"
+            app:shadow="false" />
+
+        <com.pkmmte.view.CircularImageView
+            android:src="@drawable/ic_verified"
+            android:id="@+id/itemAuthorIcon"
+            app:border="true"
+            app:border_color="#fff"
+            app:border_width="1dp"
+            app:shadow="false"
+            android:layout_marginLeft="-24dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/itemAuthor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:text="Item Author Fullname"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-light" />
+
+                        <ImageView
+
+                            android:layout_width="15px"
+                            android:layout_height="15px"
+                            android:src="@drawable/ic_online"
+                            android:tint="@color/green"
+                            android:id="@+id/itemAuthorOnlineIcon"
+                            android:layout_marginLeft="8dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="\@username"
+                        android:id="@+id/itemUsername"
+                        android:maxLines="1"
+                        android:fontFamily="sans-serif-light" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1m ago"
+                            android:id="@+id/itemTimeAgo"
+                            android:singleLine="true"
+                            android:fontFamily="sans-serif-light"
+                            android:textColor="@color/gray_text"
+                            android:textSize="12dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/locationContainer">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:id="@+id/textView2"
+                                android:singleLine="true"
+                                android:fontFamily="sans-serif-light"
+                                android:textColor="@color/gray_text"
+                                android:textSize="12dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="City"
+                                android:id="@+id/itemCity"
+                                android:singleLine="true"
+                                android:fontFamily="sans-serif-light"
+                                android:textColor="@color/gray_text"
+                                android:textSize="12dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical"
+                                android:layout_marginRight="5dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Country"
+                                android:id="@+id/itemCountry"
+                                android:singleLine="true"
+                                android:fontFamily="sans-serif-light"
+                                android:textColor="@color/gray_text"
+                                android:textSize="12dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/itemContent">
+
+        <github.ankushsachdeva.emojicon.EmojiconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item Text"
+            android:id="@+id/itemText"
+            android:fontFamily="sans-serif-light"
+            android:linksClickable="true"
+            android:autoLink="web"
+            android:textColorLink="#5BCFF2"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            emojicon:emojiconSize="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="10dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ru.ifsoft.mnetwork.view.ResizableImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/itemImg"
+                android:src="@drawable/img_loading"
+                android:layout_marginBottom="10dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:src="@drawable/video_play"
+                android:id="@+id/itemPlay"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="96dp"
+                android:layout_height="96dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/itemFooter"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/listViewDivider2"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="false">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1">
+
+            </LinearLayout>
+
+            <com.balysv.materialripple.MaterialRippleLayout
+                style="@style/MyRippleStyleLight"
+                android:id="@+id/itemLikesCountBtn"
+                android:layout_width="wrap_content"
+                android:layout_weight="0"
+                android:weightSum="1"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:id="@+id/itemLikesCount"
+                        android:gravity="center"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="4dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+            <com.balysv.materialripple.MaterialRippleLayout
+                style="@style/MyRippleStyleLight"
+                android:id="@+id/itemLikeBtn"
+                android:layout_width="wrap_content"
+                android:layout_weight="0"
+                android:weightSum="1"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" >
+
+                    <ImageView
+                        android:id="@+id/itemLike"
+                        android:src="@drawable/perk"
+                        android:scaleType="fitCenter"
+                        android:layout_margin="2dp"
+                        android:padding="2dp"
+                        android:adjustViewBounds="true"
+                        android:layout_height="match_parent"
+                        android:layout_width="38dp" />
+
+                </LinearLayout>
+
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/postSeparatorLine"
+        android:id="@+id/postBottomSeparatorLine" />
+
+    <!-- Person Full name -->
+
+    <!-- Status -->
+
+</LinearLayout>
